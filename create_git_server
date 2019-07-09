@@ -1,0 +1,54 @@
+entos搭建 Git Server
+
+2018年04月08日 16:20:44 jiegemena 阅读数 395
+ 版权声明：本文为博主原创文章，未经博主允许不得转载。 https://blog.csdn.net/jiegemena/article/details/79853690
+yum install -y git 
+git –version 
+git version 1.8.3.1
+
+添加Git用户 
+useradd jggit 
+passwd git#git
+
+//新建库 
+Cd /home/jggit/data 
+mkdir -p suanfa.git 
+git init –bare suanfa.git 
+Initialized empty Git repository in /home/jggit/data/suanfa.git/ 
+chown -R jggit:jggit suanfa.git/
+
+客户端
+
+新库提交
+
+git push jggit:127.0.0.1/home/jggit/data/suanfa.git
+
+拉取库
+
+git clone jggit:127.0.0.1/home/jggit/data/suanfa.git
+
+拉取远程
+
+git pull jggit:127.0.0.1/home/jggit/data/suanfa.git
+
+修改
+
+git add ./
+
+提交本地缓存
+
+git commit -m “first commit”
+
+提交远程
+
+git push jggit:127.0.0.1/home/jggit/data/suanfa.git
+
+Githurb
+
+修改用户名和邮箱
+
+git config –global user.name “name” 
+git config –global user.email “test@test.com”
+
+
+
