@@ -3,7 +3,6 @@ load "$NCARG_ROOT/lib/ncarg/nclscripts/csm/gsn_code.ncl"
 load "$NCARG_ROOT/lib/ncarg/nclscripts/wrf/WRFUserARW.ncl"
 load "$NCARG_ROOT/lib/ncarg/nclscripts/csm/gsn_csm.ncl"
 
-
 begin 
 
 ;  wsd="2015-05-19_00:00:00"
@@ -30,7 +29,6 @@ begin
   data = (/ter, psfc, tc2, rh2, u10, v10, hfx, qfx, pblh, rain/)
 
   data_dim = dimsizes(data)
-
   station_list="STATION_INI"
 
   stid=tostring(systemfunc("cat "+station_list+"|awk '{print $1}'  "))
@@ -81,9 +79,5 @@ begin
   end do
 
   asciiwrite(fn_out+".txt",lines)
-
-
-
-
 
 end
